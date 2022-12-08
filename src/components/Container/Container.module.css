@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+    .Container {
+        @apply bg-slate-500
+    }
+}
