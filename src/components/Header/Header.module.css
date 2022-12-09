@@ -1,1 +1,11 @@
-.Header {}
+@tailwind components;
+
+@layer components {
+    .Header {
+        @apply flex justify-between px-5 py-4 border-2 rounded-lg dark:border-slate-400
+    }
+
+    .logo {
+        @apply font-bold text-slate-800 dark:text-slate-100
+    }
+}

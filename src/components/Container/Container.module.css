@@ -2,6 +2,10 @@
 
 @layer components {
     .Container {
-        @apply bg-slate-500
+        @apply bg-slate-100 dark:bg-slate-800 lg:col-start-2 h-fit 
+    }
+
+    .wrapper {
+        @apply min-h-screen h-fit w-screen bg-slate-100 dark:bg-slate-800 lg:grid lg:grid-cols-[1fr_1000px_1fr] justify-center items-center
     }
 }

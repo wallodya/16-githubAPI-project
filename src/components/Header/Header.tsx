@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 import styles from './Header.module.css';
+import ThemeSwitcher from 'components/ThemeSwitcher/ThemeSwitcher.lazy';
 
-interface HeaderProps {}
-
-const Header: FC<HeaderProps> = () => (
+const Header: FC = () => (
   <div className={styles.Header}>
-    Header Component
+    <div className={styles.logo}>
+        devFinder
+    </div>
+    <ThemeSwitcher />
   </div>
 );
 

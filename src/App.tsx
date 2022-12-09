@@ -1,9 +1,13 @@
+import Container from "./components/Container/Container.lazy"
+import ThemeSwitcher from "./components/ThemeSwitcher/ThemeSwitcher.lazy"
 import "./App.css"
-import Container from "./components/Container/Container"
+import Header from "components/Header/Header"
 
 function App() {
 	return (
-        <Container/>
+        <Container>
+            <Header />
+        </Container>
     )
 }
 
