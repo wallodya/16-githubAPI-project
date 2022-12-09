@@ -14,7 +14,6 @@ const ThemeSwitcher: FC = () => {
 
     const getInitialTheme = () => {
         if (isDark !== null) return
-        console.log('init theme')
         const isLocalStorageThemeDark = localStorage.theme === 'dark'
         const isDocumentThemeDark = document.documentElement.getAttribute('data-theme') === 'dark'
         const isPreferenceDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches

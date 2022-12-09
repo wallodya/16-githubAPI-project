@@ -1,0 +1,14 @@
+@tailwind components; 
+
+@layer components {
+    .UserCard {
+        @apply      
+        flex flex-col
+        lg:grid lg:grid-cols-4 gap-10
+        px-12 py-8 rounded-xl   
+        bg-white
+        dark:bg-slate-700
+        text-slate-800  dark:text-slate-100
+        shadow-lg
+    }
+}

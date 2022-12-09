@@ -2,7 +2,7 @@
 
 @layer components {
     .SearchBar {
-        @apply flex justify-between items-center px-5 py-4 rounded-xl
+        @apply flex justify-between gap-4 items-center px-5 py-4 rounded-xl
         bg-white
         dark:bg-slate-700
         text-sky-600 dark:text-sky-500
@@ -10,6 +10,11 @@
     }
 
     .input {
-        @apply w-full mx-4 py-2 px-2 bg-transparent
+        @apply w-full py-2 px-2 bg-transparent
+    }
+
+    .error {
+        @apply text-sm whitespace-nowrap text-red-600
+        dark:text-red-400
     }
 }

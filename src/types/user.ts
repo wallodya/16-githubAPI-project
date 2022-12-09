@@ -38,6 +38,7 @@ export type GitHubUser = Pick<
 	| "login"
 	| "location"
 	| "id"
+    | "html_url"
 	| "avatar_url"
 	| "name"
 	| "company"
