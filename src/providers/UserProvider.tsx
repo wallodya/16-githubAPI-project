@@ -18,20 +18,21 @@ const isUser = (obj: GitHubUser | NotFound): obj is GitHubUser => {
 }
 
 const NULL_USER: GitHubUser = {
-	login: "-",
-	location: "-",
-	id: 0,
-	avatar_url: "-",
-	name: "-",
-	company: null,
-	blog: "-",
-	bio: "-",
-	twitter_username: null,
-	public_repos: 0,
-	followers: 0,
-	following: 0,
-	created_at: "-",
-	updated_at: "-",
+    login: "-",
+    location: "-",
+    id: 0,
+    avatar_url: "-",
+    name: "-",
+    company: null,
+    blog: "-",
+    bio: "-",
+    twitter_username: null,
+    public_repos: 0,
+    followers: 0,
+    following: 0,
+    created_at: "-",
+    updated_at: "-",
+    html_url: ""
 }
 
 const getUser = (username: string): Promise<GitHubUser | NotFound> => {
