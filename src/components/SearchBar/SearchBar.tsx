@@ -28,6 +28,7 @@ const SearchBar: FC<SearchBarProps> = () => {
                 id="input"
                 ref={input}
                 type="text"
+                autoComplete="off"
                 placeholder="Search GitHub username"
                 className={styles.input}
                 onChange={() => setIsErrorShown(false)}

@@ -9,58 +9,71 @@ import { ReactComponent as IconCompany } from "assets/icon-company.svg"
 interface UserCardProps {}
 
 const UserCard: FC<UserCardProps> = () => {
-    const { user } = useUser()
+	const { user } = useUser()
 	return (
-        <div className={styles.UserCard}>
-            <div className="lg:col-start-1">
-                <img src={user.avatar_url}/>
-            </div>
-            <div className="lg:col-start-2 lg:col-span-3 flex flex-col gap-4">
-                <div className="w-full flex justify-between px-5">
-                    <span className="text-2xl font-bold">{user.login}</span>
-                    <span className="text-2xl font-bold text-slate-400">{new Date(user.created_at).toLocaleDateString()}</span>
-                </div>
-                <div className="px-5">
-                    {user.id}
-                </div>
-                <div className="px-5">
-                    {user.bio || "No bio is provided"}
-                </div>
-                <div className="flex justify-between rounded-2xl px-10 py-6 my-5 bg-slate-600 dark:bg-slate-800 text-slate-100">
-                    <div className="flex flex-col gap-4">
-                        <span className="text-lg font-bold">Repos</span>
-                        <span className="text-2xl font-bold">{user.public_repos}</span>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <span className="text-lg font-bold">Followers</span>
-                        <span className="text-2xl font-bold">{user.followers}</span>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <span className="text-lg font-bold">Following</span>
-                        <span className="text-2xl font-bold">{user.following}</span>
-                    </div>
-                </div>
-                <div className="grid grid-cols-[32px_1fr_32px_1fr] gap-y-4 grid-rows-2 align-center px-5">
-
-                        <IconLocation />
-                        <span>{user.location || "Not avaialble"}</span>
-
-
-                        <IconTwitter />
-                        <span>{user.twitter_username || "Not avaialble"}</span>
-
-
-                        <IconCompany />
-                        <span>{user.company || "Not avaialble"}</span>
-
-
-                        <IconWensite />
-                        <span>{user.html_url || "Not avaialble"}</span>
-
-                </div>
-            </div>
-        </div>
-    )
+		<div className={styles.UserCard}>
+			<div className="lg:col-start-1">
+				<img src={user.avatar_url} />
+			</div>
+			<div className="lg:col-start-2 lg:col-span-3 flex flex-col gap-5">
+				<div className="w-full flex justify-between ">
+					<span className="text-2xl font-bold">{user.login}</span>
+					<span className="text-xl font-bold text-slate-400">
+						{new Date(user.created_at).toLocaleDateString()}
+					</span>
+				</div>
+				<div className="atext-lg text-slate-400">{user.name}</div>
+				<div className="mt-10">{user.bio || "No bio is provided"}</div>
+				<div className="grid grid-cols-3 rounded-2xl px-10 py-6 my-5 bg-slate-600 dark:bg-slate-800 text-slate-100">
+					<div className="flex flex-col gap-4">
+						<span className="text-lg font-bold">Repos</span>
+						<span className="text-2xl font-bold">
+							{user.public_repos}
+						</span>
+					</div>
+					<div className="flex flex-col gap-4">
+						<span className="text-lg font-bold">Followers</span>
+						<span className="text-2xl font-bold">
+							{user.followers}
+						</span>
+					</div>
+					<div className="flex flex-col gap-4">
+						<span className="text-lg font-bold">Following</span>
+						<span className="text-2xl font-bold">
+							{user.following}
+						</span>
+					</div>
+				</div>
+				<div className="flex flex-col sm:grid sm:grid-cols-2 gap-y-4 grid-rows-2 align-center">
+					<a 
+                        className={user.location ? styles.link : styles.linkDisabled}
+                    >
+						<IconLocation className="justify-self-center" />
+						<span>{user.location || "Not avaialble"}</span>
+					</a>
+					<a 
+                        className={user.twitter_username ? (styles.link ): styles.linkDisabled}
+                    >
+						<IconTwitter className="justify-self-center" />
+						<span>{user.twitter_username || "Not avaialble"}</span>
+					</a>
+					<a 
+                        className={user.company ? styles.link : styles.linkDisabled}
+                    >
+						<IconCompany className="justify-self-center" />
+						<span>{user.company || "Not avaialble"}</span>
+					</a>
+					<a 
+                        href={user.html_url || ""}
+                        className={user.html_url ? styles.link : styles.linkDisabled}
+                    >
+						<IconWensite className="justify-self-center" />
+						<span>{user.html_url || "Not avaialble"}</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	)
 }
 
 export default UserCard

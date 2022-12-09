@@ -11,4 +11,13 @@
         text-slate-800  dark:text-slate-100
         shadow-lg
     }
+
+    .link {
+        @apply w-fit grid grid-cols-[48px_1fr_48px] items-center rounded py-2
+        hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer
+    }
+
+    .linkDisabled {
+        @apply w-fit grid grid-cols-[48px_1fr_48px]text-slate-400
+    }
 }
