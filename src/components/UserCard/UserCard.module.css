@@ -14,10 +14,12 @@
 
     .link {
         @apply w-fit grid grid-cols-[48px_1fr_48px] items-center rounded py-2
-        hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer
+        hover:bg-slate-600 hover:text-slate-100
+        dark:hover:bg-slate-100 dark:text-slate-100 hover:dark:text-slate-800
+        transition-colors cursor-pointer
     }
 
     .linkDisabled {
-        @apply w-fit grid grid-cols-[48px_1fr_48px]text-slate-400
+        @apply w-fit grid grid-cols-[48px_1fr_48px] items-center text-slate-400
     }
 }

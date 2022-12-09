@@ -10,9 +10,11 @@
     }
 
     .input {
-        @apply w-full py-2 px-2 bg-transparent
+        @apply w-full py-2 px-2 bg-transparent 
+        text-slate-500 focus:text-slate-800 focus:outline-offset-1
+        dark:text-slate-400 focus:dark:text-slate-100 focus:dark:outline-offset-1
     }
-
+    
     .error {
         @apply text-sm whitespace-nowrap text-red-600
         dark:text-red-400
