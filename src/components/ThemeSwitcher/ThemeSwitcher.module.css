@@ -2,7 +2,10 @@
 
 @layer components {
     .ThemeSwitcher {
-        @apply flex gap-2 text-slate-800 dark:text-slate-100 hover:text-slate-500 hover:dark:text-slate-400 items-center cursor-pointer
+        @apply flex gap-2
+        text-slate-800 hover:text-slate-500
+        dark:text-slate-100 hover:dark:text-slate-400
+        items-center cursor-pointer
         transition-colors
     }
 

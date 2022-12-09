@@ -1,0 +1,11 @@
+@tailwind components; 
+
+@layer components {
+    .Button, [type="submit"] {
+        @apply text-white rounded-lg
+        px-4 py-2 
+        bg-sky-600 dark:bg-sky-500
+        hover:bg-sky-700 hover:dark:bg-sky-600
+        transition-colors
+    }
+}

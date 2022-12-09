@@ -2,7 +2,9 @@
 
 @layer components {
     .Container {
-        @apply bg-slate-100 dark:bg-slate-800 lg:col-start-2 h-fit 
+        @apply flex flex-col gap-y-4
+        lg:col-start-2 h-fit
+        bg-slate-100 dark:bg-slate-800 
     }
 
     .wrapper {
