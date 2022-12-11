@@ -10,6 +10,8 @@
         dark:bg-slate-700
         text-slate-800  dark:text-slate-100
         shadow-lg
+        origin-top
+        transition-transform
     }
 
     .link {

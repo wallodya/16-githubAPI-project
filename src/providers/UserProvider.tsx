@@ -6,6 +6,7 @@ interface Props {
 }
 
 type UserContext = {
+    isLoaded: boolean
 	isError: boolean
 	isLoading: boolean
 	error: string
@@ -18,20 +19,20 @@ const isUser = (obj: GitHubUser | NotFound): obj is GitHubUser => {
 }
 
 const NULL_USER: GitHubUser = {
-    login: "-",
-    location: "-",
+    login: "...",
+    location: "...",
     id: 0,
-    avatar_url: "-",
-    name: "-",
+    avatar_url: "",
+    name: "...",
     company: null,
-    blog: "-",
-    bio: "-",
+    blog: "...",
+    bio: "...",
     twitter_username: null,
     public_repos: 0,
     followers: 0,
     following: 0,
-    created_at: "-",
-    updated_at: "-",
+    created_at: "",
+    updated_at: "...",
     html_url: ""
 }
 
@@ -49,6 +50,7 @@ const getUser = (username: string): Promise<GitHubUser | NotFound> => {
 }
 
 const NULL_CONTEXT: UserContext = {
+    isLoaded: false,
 	isError: false,
 	isLoading: false,
 	error: "",
@@ -62,10 +64,16 @@ const UserProvider: React.FC<Props> = ({ children }) => {
 	const [user, setUser] = useState<GitHubUser>(NULL_USER)
 	const [isError, setIsError] = useState<boolean>(false)
 	const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [isLoaded, setIsLoaded] = useState<boolean>(false)
 	const [error, setError] = useState<string>("")
 
-	const getInitialUser = () =>
-		localStorage.user && setUser(JSON.parse(localStorage.user))
+	const getInitialUser = () => {
+		if (localStorage.user) {
+            setUser(JSON.parse(localStorage.user))
+            setIsLoaded(true)
+        }
+
+    }
 
 	const updateUser = async (username: string, onError?: () => void): Promise<void> => {
         setIsLoading(true)
@@ -90,6 +98,7 @@ const UserProvider: React.FC<Props> = ({ children }) => {
                 onError()
             }
 		} finally {
+            setIsLoaded(true)
 			setIsLoading(false)
 		}
 	}
@@ -99,6 +108,7 @@ const UserProvider: React.FC<Props> = ({ children }) => {
 	}, [])
 
 	const context: UserContext = {
+        isLoaded,
 		isError,
 		isLoading,
 		error,

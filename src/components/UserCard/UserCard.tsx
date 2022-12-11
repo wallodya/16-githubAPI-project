@@ -6,24 +6,40 @@ import { ReactComponent as IconTwitter } from "assets/icon-twitter.svg"
 import { ReactComponent as IconWensite } from "assets/icon-website.svg"
 import { ReactComponent as IconCompany } from "assets/icon-company.svg"
 
-interface UserCardProps {}
+const UserCard: FC | (() => void) = () => {
 
-const UserCard: FC<UserCardProps> = () => {
-	const { user } = useUser()
+	const { user, isLoaded } = useUser()
+
+    // if (!isLoaded) return
+
+    const dateTimeFormat = new Intl.DateTimeFormat('en-GB', {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+    })
+    
 	return (
-		<div className={styles.UserCard}>
+		<div className={isLoaded ? styles.UserCard : `${styles.UserCard} + scale-y-0 my-0`}>
 			<div className="lg:col-start-1">
-				<img src={user.avatar_url} />
+                {   
+                    !!user.avatar_url
+                    &&
+				    <img src={user.avatar_url} />
+                }
 			</div>
 			<div className="lg:col-start-2 lg:col-span-3 flex flex-col gap-5">
 				<div className="w-full flex justify-between ">
 					<span className="text-2xl font-bold">{user.login}</span>
-					<span className="text-xl font-bold text-slate-400">
-						{new Date(user.created_at).toLocaleDateString()}
-					</span>
+                    {
+                        !!user.created_at
+                        &&
+                        <span className="text-xl font-bold text-slate-400">
+                            {dateTimeFormat.format((new Date(user.created_at)))}
+                        </span>
+                    }
 				</div>
 				<div className="atext-lg text-slate-400">{user.name}</div>
-				<div className="mt-10">{user.bio || "No bio is provided"}</div>
+				<div className="mt-10 font-mono text-slate-400">{user.bio || "No bio is provided"}</div>
 				<div className="grid grid-cols-3 rounded-2xl px-10 py-6 my-5 bg-slate-600 dark:bg-slate-800 text-slate-100">
 					<div className="flex flex-col gap-4">
 						<span className="text-lg font-bold">Repos</span>
