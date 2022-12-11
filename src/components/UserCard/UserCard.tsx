@@ -6,11 +6,9 @@ import { ReactComponent as IconTwitter } from "assets/icon-twitter.svg"
 import { ReactComponent as IconWensite } from "assets/icon-website.svg"
 import { ReactComponent as IconCompany } from "assets/icon-company.svg"
 
-const UserCard: FC | (() => void) = () => {
+const UserCard: FC = () => {
 
 	const { user, isLoaded } = useUser()
-
-    // if (!isLoaded) return
 
     const dateTimeFormat = new Intl.DateTimeFormat('en-GB', {
         month: "short",
